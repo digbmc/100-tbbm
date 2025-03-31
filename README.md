@@ -5,7 +5,7 @@ Web app for permutations workshop 4/4/25
 ## Notes on versions
 
 - Static: loads from json, not live
-- Turtle: loads live, but very slowly
+- Turtle: loads live, but very slowly (incredibly slowly on Cloud)
 
 ## Pseudocode 
 
