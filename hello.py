@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -9,4 +10,7 @@ def add_security_headers(response):
 
 @app.route("/")
 def hello_world():
-    return "<h1>One thousand billion Bryn Mawrs</h1><p>Hello, World!</p><p><a href='https://support.reclaimhosting.com/hc/en-us/articles/9220813439127'>More info</a></p>"
+    return render_template("hello.html")
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=8000, debug=True)

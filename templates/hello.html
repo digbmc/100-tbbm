@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <main>
+        <header>
+        
+            <div class = title>
+                <h1>100 Thousand</h1>
+                <h2>Billion</h2>
+                <h3>Bryn Mawrs</h3>
+            </div>
+            <div class = "box">
+                <p>inspired by "100 Thousand Billion Poems" by French poet and Oulipo visionary Raymond Queneau, 100 Thousand Billion Bryn Mawrs is a group poem created by students at Bryn Mawr</p>
+                <!-- <p><button type="button" onlick="test()" >Show me one possible Bryn Mawr</button></p> -->
+                 <button>Show me one possible Bryn Mawr</button>
+                <p id="demo"></p>
+                <!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->
+            </div>
+        </header>
+        {% block content %}
+            
+            <ul>
+                {% for c,s in entry %}
+                <li>{{ c }}...{{ s }}</li>
+                {% endfor%}
+            </ul>
+        {% endblock %}
+    </main>
+</body>
+</html>
