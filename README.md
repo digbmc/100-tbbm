@@ -1,6 +1,11 @@
 # 100 Thousand Billion Bryn Mawrs
 
-Web app for permutations workshopg
+Web app for permutations workshop 4/4/25
+
+## Notes on versions
+
+- Static: loads from json, not live
+- Turtle: loads live, but very slowly
 
 ## Pseudocode 
 
