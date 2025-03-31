@@ -7,6 +7,11 @@ Web app for permutations workshop 4/4/25
 - Static: loads from json, not live
 - Turtle: loads live, but very slowly (incredibly slowly on Cloud)
 
+## Notes on this version
+
+- GIDs must be updated with new sheet
+- Needs some visual signifier of loading (or needs to partially load)
+
 ## Pseudocode 
 
 ```{python}
