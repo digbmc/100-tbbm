@@ -3,9 +3,10 @@ console.log('JavaScript is working!');
 document.addEventListener('DOMContentLoaded', function() {
     var button = document.getElementById('colorButton');
     button.addEventListener('click', function() {
-        var colors = ['pink', 'purple', 'red'];
-        var randomColor = colors[Math.floor(Math.random() * colors.length)];
-        button.style.backgroundColor = randomColor; // Change to any color you like
+        window.location.reload();
+        // var colors = ['pink', 'purple', 'red'];
+        // var randomColor = colors[Math.floor(Math.random() * colors.length)];
+        // button.style.backgroundColor = randomColor; // Change to any color you like
     });
 });
 
