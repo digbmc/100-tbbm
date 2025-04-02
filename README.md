@@ -32,8 +32,7 @@ for s in sheets:
     cell = request_cell(s, r, sheet_id)
 ```
 
-## Tasks
-- [x] deploy to cloud stuff (alice) 
+## Tasks- [x] deploy to cloud stuff (alice) 
 - [x] set up html iframe & troubleshoot (alice)
 - [x] create jinja template
 - [x] put request functions together
@@ -45,7 +44,7 @@ for s in sheets:
 - [ ] finish style and content
 - [ ] get final text from J&S
 - [ ] work on request version
-
+- [ ] Update spreadsheet data for https://docs.google.com/spreadsheets/d/e/2PACX-1vRIKHYbU9rAl4uAlZcy-L1OEAgbYMCyp_3mamMxQH-PyIcR6IkWWmy6GTN9MhNNSmcd9KPhWK6KumL-/pub?output=csv
 
 
 
