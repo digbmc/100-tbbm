@@ -110,9 +110,15 @@ a {
     color: #A7641C;
 }
 @media only screen and (max-width: 600px) {
-    main {
+    main.hello {
         width: 90%;
     }
+
+    div.options{
+        margin: auto;
+        width: 100%
+    }
+
     header {
         flex-direction: column;
         gap: 5px;
