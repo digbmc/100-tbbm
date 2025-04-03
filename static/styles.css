@@ -10,11 +10,18 @@
 body {
     font-size: 1rem;
     font-family: Lato;
+    color:#2e294e;
 }
-main {
+main.hello {
     margin: auto;
     width: 60%;
 }
+
+div.options{
+    margin: auto;
+    width: 90%
+}
+
 header {
     border-bottom: dashed 2px #FFC600;
     display: flex;
@@ -25,10 +32,23 @@ header {
 footer {
     border-top: solid 2px #2e294e;
 }
+
+ul {
+    list-style-type: none;
+    /* padding:0; */
+}
+
 li {
     list-style: none;
+    padding:0;
     margin-bottom: 10px;
 }
+
+li strong {
+    font-weight:bold;
+    /* color:purple; */
+}
+
 .title {
     display:flex;
     flex-direction: column;
