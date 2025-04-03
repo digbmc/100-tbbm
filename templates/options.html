@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Thousand Billion Bryn Mawrs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+    <main>
+        <h4>At this Bryn Mawr... </h4>
+        {% block content %}
+            
+            <ul>
+                {% for c,s in entry %}
+                <li>{{ c }}...{{ s }}</li>
+                {% endfor%}
+            </ul>
+        {% endblock %}
+    </main>
+</body>
+</html>
