@@ -10,7 +10,7 @@ cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 @app.after_request
 def add_security_headers(response):
-    response.headers['Content-Security-Policy'] = "default-src 'self'; frame-ancestors 'self' https://digitalscholarship.brynmawr.edu;"
+    response.headers['Content-Security-Policy'] = "default-src 'self'; frame-ancestors 'self' https://digitalscholarship.brynmawr.edu https://digbmc.github.io; script-src 'self'"
     return response
 
 @app.route("/")
