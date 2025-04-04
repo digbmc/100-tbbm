@@ -25,7 +25,7 @@ def get_random(options):
     responses = []
     for val in options:
         try:
-            r = random.randint(1, len(val))
+            r = random.randint(1, len(val)-1)
             responses.append(val[r])
         except:
             responses.append('')
