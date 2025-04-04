@@ -78,18 +78,18 @@ def request_options():
         r = random.randint(1,10)
         responses.append(val[r])
     questions = [
-        'During their first year, students ….',
-        'Students develop and demonstrate their quantitative skills …',
-        'Students develop language skills….',
-        'Students achieve the breadth expected of a liberal arts education …',
-        'Students develop a nuanced understanding of power, inequality, and justice in our society ….',
-        'Students further develop their mind-body connection …',
-        'Students deepen their writing abilities beyond the first year by…',
-        'Students practice interdisciplinary thinking …',
-        'Students engage in experiential or community-engaged learning…',
+        'During their first year, students…',
+        'Students develop and demonstrate their quantitative skills…',
+        'Students develop language skills…',
+        'Students achieve the breadth expected of a liberal arts education…',
+        'Students develop a nuanced understanding of power, inequality, and justice in our society…',
+        'Students further develop their mind-body connection…',
         'We assess and represent competencies…',
+        'Our undergraduate credentialing includes…',
+        'Students deepen their writing abilities beyond the first year by…',
+        'Students practice interdisciplinary thinking…',
+        'Students engage in experiential or community-engaged learning…',
         'Our graduate students interact with our undergraduates through…',
-        'Our undergraduate credentialing includes …',
         'Seniors integrate their college experience and demonstrate their mastery of their academic program…',
         'Our curriculum supports students from historically-excluded populations…']
     return render_template("options.html", entry=zip(questions, responses))
