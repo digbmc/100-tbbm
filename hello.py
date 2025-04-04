@@ -91,14 +91,20 @@ def request_options():
 def request_alumni():
     alumni = cache.get('alumni_data')
     if alumni is None:
-        sheet_gids = [1202051472, 1009788276, 1362786704, 2071309954, 865859103,
-            60204872, 1356126397, 1552947615, 1430527252, 427379088, 299682830,
-            1641709279, 1638835585, 1425001770]
-        sheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRIKHYbU9rAl4uAlZcy-L1OEAgbYMCyp_3mamMxQH-PyIcR6IkWWmy6GTN9MhNNSmcd9KPhWK6KumL-/pub?output=csv"
+        sheet_gids = [785551783, 723501988, 928268027, 861216909, 953776574, 476395773, 1967688672]
+        sheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQgaiDTOlSJYQyZSafSTLpx_LfjSPHGteEL5b6GDP9ar0VQS6dklT7JwQFTrUyRITYvxiiyRsnHKBiA/pub?output=csv"
         alumni = get_permutations(sheet_gids, sheet_url)
         cache.set('alumni_data', alumni, timeout=100)
     responses = get_random(alumni)
-    return render_template("options.html", entry=zip(questions, responses))
+    alum_questions = [
+        'During their first year, students ….',
+        'Students develop and demonstrate their quantitative skills …',
+        'Students develop language skills….',
+        'Students achieve the breadth expected of a liberal arts education …',
+        'Students practice interdisciplinary thinking …',
+        'Our undergraduate credentialing includes …',
+        'Seniors integrate their college experience and demonstrate their mastery of their academic program…']
+    return render_template("options.html", entry=zip(alum_questions, responses))
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8000, debug=True)
