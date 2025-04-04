@@ -75,8 +75,11 @@ def request_options():
     
     responses = []
     for val in options:
-        r = random.randint(1,10)
-        responses.append(val[r])
+        try:
+            r = random.randint(1, len(val))
+            responses.append(val[r])
+        except:
+            responses.append('')
     questions = [
         'During their first year, students…',
         'Students develop and demonstrate their quantitative skills…',
