@@ -85,7 +85,7 @@ def request_options():
         options = get_permutations(sheet_gids, sheet_url)
         cache.set('option_data', options, timeout=100)
     responses = get_random(options)
-    return render_template("options.html", entry=zip(questions, responses))
+    return render_template("options.html", cl='options', entry=zip(questions, responses))
 
 @app.route("/alumni")
 def request_alumni():
@@ -104,7 +104,7 @@ def request_alumni():
         'Students practice interdisciplinary thinking …',
         'Our undergraduate credentialing includes …',
         'Seniors integrate their college experience and demonstrate their mastery of their academic program…']
-    return render_template("options.html", entry=zip(alum_questions, responses))
+    return render_template("options.html", cl='alum', entry=zip(alum_questions, responses))
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8000, debug=True)
