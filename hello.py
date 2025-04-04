@@ -74,8 +74,7 @@ def request_data():
         pairs.append((val[0], val[r]))
     return render_template("hello.html", entry=pairs)
 
-@app.route("/options")
-# has values for main event
+@app.route("/options") # has values for main event
 def request_options():
     options = cache.get('option_data')
     if options is None:
@@ -83,40 +82,9 @@ def request_options():
             60204872, 1356126397, 1552947615, 1430527252, 427379088, 299682830,
             1641709279, 1638835585, 1425001770]
         sheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRIKHYbU9rAl4uAlZcy-L1OEAgbYMCyp_3mamMxQH-PyIcR6IkWWmy6GTN9MhNNSmcd9KPhWK6KumL-/pub?output=csv"
-        options = []
-        for gid in sheet_gids:
-            response = requests.get(sheet_url+'&gid='+str(gid))
-            data = response.content.decode('utf-8')
-            choices = []
-            csv_reader = csv.reader(data.splitlines())
-            for row in csv_reader:
-                choices.append(row[1]) 
-            #choices = data.splitlines()
-            options.append(choices)
+        options = get_permutations(sheet_gids, sheet_url)
         cache.set('option_data', options, timeout=100)
-    
-    responses = []
-    for val in options:
-        try:
-            r = random.randint(1, len(val))
-            responses.append(val[r])
-        except:
-            responses.append('')
-    questions = [
-        'During their first year, students…',
-        'Students develop and demonstrate their quantitative skills…',
-        'Students develop language skills…',
-        'Students achieve the breadth expected of a liberal arts education…',
-        'Students develop a nuanced understanding of power, inequality, and justice in our society…',
-        'Students further develop their mind-body connection…',
-        'We assess and represent competencies…',
-        'Our undergraduate credentialing includes…',
-        'Students deepen their writing abilities beyond the first year by…',
-        'Students practice interdisciplinary thinking…',
-        'Students engage in experiential or community-engaged learning…',
-        'Our graduate students interact with our undergraduates through…',
-        'Seniors integrate their college experience and demonstrate their mastery of their academic program…',
-        'Our curriculum supports students from historically-excluded populations…']
+    responses = get_random(options)
     return render_template("options.html", entry=zip(questions, responses))
 
 @app.route("/alumni")
