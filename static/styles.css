@@ -124,7 +124,11 @@ a {
 
     div.options{
         margin: auto;
-        width: 100%
+        width: 100%;
+    }
+    
+    div.alum{
+        width:90%;
     }
 
     header {
