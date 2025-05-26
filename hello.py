@@ -106,5 +106,18 @@ def request_alumni():
         'Seniors integrate their college experience and demonstrate their mastery of their academic program…']
     return render_template("options.html", cl='alum', entry=zip(alum_questions, responses))
 
+@app.route("/board")
+def request_board():
+    board = cache.get('board_data')
+    if board is None:
+        sheet_gids = [1202051472, 1009788276, 1362786704, 2071309954, 865859103, 60204872, 
+                      1356126397, 1552947615, 1430527252, 427379088, 299682830, 1641709279, 
+                      1638835585, 1425001770]
+        sheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTxmpY_jkg3f2Xzr3lVkHKvOU1FZqluDyFSrxV83wYmE700H1tKU1AwEw41WpVKMTWWN4WwQ-gmo3N/pub?output=csv"
+        board = get_permutations(sheet_gids, sheet_url)
+        cache.set('board_data', board, timeout=100)
+    responses = get_random(board)
+    return render_template("options.html", cl='options', entry=zip(questions, responses))
+
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8000, debug=True)
