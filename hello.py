@@ -110,10 +110,22 @@ def request_alumni():
 def request_board():
     board = cache.get('board_data')
     if board is None:
-        sheet_gids = [1202051472, 1009788276, 1362786704, 2071309954, 865859103, 60204872, 
-                      1356126397, 1552947615, 1430527252, 427379088, 299682830, 1641709279, 
-                      1638835585, 1425001770]
-        sheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTxmpY_jkg3f2Xzr3lVkHKvOU1FZqluDyFSrxV83wYmE700H1tKU1AwEw41WpVKMTWWN4WwQ-gmo3N/pub?output=csv"
+        sheet_gids = [81842435,
+                    2021627128,
+                    1187310255,
+                    696256339,
+                    857366468,
+                    1603593638,
+                    2069043826,
+                    545073373,
+                    849924807,
+                    127069984,
+                    1694691488,
+                    137330818,
+                    1758911223,
+                    1831779656,
+                    814523729]
+        sheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTr_e4q9mjv4QNijJoBFI9L3JOrNkgImUdrE60jsRUgaqwbgHMAC2CMuMS_S_2XUPPbrt8gdiEAAIs5/pub?output=csv"
         board = get_permutations(sheet_gids, sheet_url)
         cache.set('board_data', board, timeout=100)
     responses = get_random(board)
