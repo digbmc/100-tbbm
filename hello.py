@@ -110,8 +110,7 @@ def request_alumni():
 def request_board():
     board = cache.get('board_data')
     if board is None:
-        sheet_gids = [81842435,
-                    2021627128,
+        sheet_gids = [2021627128,
                     1187310255,
                     696256339,
                     857366468,
