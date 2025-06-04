@@ -5,6 +5,7 @@ import random
 import requests
 from flask_caching import Cache
 import csv
+import json
 
 app = Flask(__name__)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
@@ -129,6 +130,19 @@ def request_board():
         cache.set('board_data', board, timeout=100)
     responses = get_random(board)
     return render_template("options.html", cl='options', entry=zip(questions, responses))
+
+@app.route("/test")
+def get_json():
+    filename = 'april-5-data.json'
+    with open(filename) as test_file:
+        data = json.load(test_file)
+        pairs = []
+        for entry in data:
+            question = entry['question']
+            r = random.randint(0,9)
+            answer = entry['options'][r]
+            pairs.append((question, answer))
+        return render_template("hello.html", entry=pairs)
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8000, debug=True)
