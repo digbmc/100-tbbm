@@ -133,7 +133,7 @@ def request_board():
 
 @app.route("/test")
 def get_json():
-    filename = 'april-5-data.json'
+    filename = 'static/april-5-data.json'
     with open(filename) as test_file:
         data = json.load(test_file)
         pairs = []
